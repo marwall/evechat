@@ -1,0 +1,3 @@
+Optimized for mobile with 3,5" screen
+css for other screens will be added
+http://www.student.nada.kth.se/~ofri/O/evechat.html
