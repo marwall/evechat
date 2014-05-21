@@ -1,0 +1,166 @@
+<!doctype html>
+<html>
+<head>
+  <title>Evechat</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimal-ui"> 
+
+   <meta name="apple-mobile-web-app-capable" content="yes">  
+   <meta name="apple-mobile-web-app-status-bar-style" content="black">
+   <link rel="stylesheet" href="styleO2.css" type="text/css" media="screen" title="no title" charset="utf-8">
+   <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.css" />
+
+
+</head>
+<body>
+
+   <div data-role="page" id="loginPage">
+
+       <div data-role="content" id="head">
+          <h2></h2>
+           
+           <div data-role="fieldcontain">
+              <label for="chatNameText"></label><input type="text" name="chatNameText" id="chatNameText" value="" title="Enter Username" placeholder="Username:">
+              <button id="chatNameButton">Ok</button>
+              <input type="button" onclick="back();" data-icon="back" value="Back">          
+           </div>
+       </div>
+   </div>
+
+   <div data-role="page" id="chatPage" data-role="page">
+
+       <div data-role="content" id="head2">
+        <h2></h2>
+       <div id="incomingMessages" name="incomingMessages" class="msgContainerDiv" ></div>
+      </br>
+
+
+
+       <div id="textarea">
+
+       <label for="messageText"><strong>Message:</strong></label>
+       <textarea id="messageText"></textarea>
+
+       <fieldset class="ui-grid-a">
+           <div class="ui-block-a"><a href="#loginPage" id="goBackButton" data-role="button">Go Back</a></div>
+           <div class="ui-block-b"><button id="chatSendButton" name="chatSendButton">Send</input>
+       </fieldset>
+   </div>
+    
+</div> <!-- Behövs denna? -->
+
+   </div>
+ </div>
+
+   
+   <script src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+   <script src="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js"></script>
+   <script src='http://cdn.pubnub.com/pubnub-3.4.min.js'></script>
+   <script>
+
+  var pubnub = PUBNUB.init({
+              publish_key   : "pub-c-7e4511ef-fa25-4b20-a51f-8963199b2e9f",
+              subscribe_key : "sub-c-7811704c-c17c-11e3-a219-02ee2ddab7fe"
+            });
+
+
+  var qs = new Querystring();
+  var v1 = qs.get("chat");
+
+  html= v1;
+  $('#head h2').append(html);
+  $('#head2 h2').append(html);
+
+  function Querystring(qs) { // optionally pass a querystring to parse
+  this.params = new Object()
+  this.get=Querystring_get
+
+  if (qs == null)
+    qs=location.search.substring(1,location.search.length)
+
+  if (qs.length == 0) return
+
+// Turn <plus> back to <space>
+// See: http://www.w3.org/TR/REC-html40/interact/forms.html#h-17.13.4.1
+  qs = qs.replace(/\+/g, ' ')
+  var args = qs.split('&') // parse out name/value pairs separated via &
+
+// split out each name=value pair
+  for (var i=0;i<args.length;i++) {
+    var value;
+    var pair = args[i].split('=')
+    var name = unescape(pair[0])
+
+    if (pair.length == 2)
+      value = unescape(pair[1])
+    else
+      value = name
+
+    this.params[name] = value
+  }
+}
+
+
+function Querystring_get(key, default_) {
+  // This silly looking line changes UNDEFINED to NULL
+  if (default_ == null) default_ = null;
+
+  var value=this.params[key]
+  if (value==null) value=default_;
+
+  return value
+}
+
+function back() {
+
+            window.location.replace("evechat.html");
+
+          };
+
+   $(document).ready(function(){
+
+       var chatName = ""
+       ,   channel  = v1;
+
+       pubnub.subscribe({
+           channel  : channel,
+           callback : function(message) {
+               $("#incomingMessages").append(
+                   "<div class='message'><span class='username'>" +
+                   (message.chatName || 'Anonymous') +
+                   "</span> : " +
+                   (message.text || ' ') +
+                   "</div>"
+               );
+               $("#incomingMessages").scrollTop(
+                   $("#incomingMessages")[0].scrollHeight
+               );
+           }
+       });
+
+       $("#chatNameButton").click(function(){
+           chatName = $("#chatNameText").val();
+           if(chatName.length <= 0) chatName = "unknown";
+           $(location).attr('href',"#chatPage");
+       });
+
+       $("#messageText").bind( 'keydown', function(e) {
+           if ((e.keyCode || e.charCode) !== 13) return true;
+           $("#chatSendButton").click();
+           return false;
+       });
+
+       $("#chatSendButton").click(function(){
+           pubnub.publish({
+               channel : channel,
+               message : {
+                    chatName : chatName,
+                    text     : $("#messageText").val()
+                }
+           });
+           $("#messageText").val("");
+       });
+
+   });</script>
+</body>
+</html>
