@@ -1,0 +1,270 @@
+/* Punkt. = class. 	margin 0 auto; = centrering */
+
+html, body {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+	background-image: url('bg.jpg');
+	background-size: 100% auto;
+	font-family: sans-serif;
+	text-decoration: none;
+
+	/* Disable text selection. */
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	-o-user-select: none;
+	user-select: none;
+}
+
+.infoItem {
+	font-size: 0.9em;
+	font-weight: bold;
+	color: #EEEEEE;
+}
+
+.ui-page {									/* BAKGRUND */
+	background-image: url('bg.jpg');
+	background-size: 100% auto;
+	background-repeat: no-repeat;
+}
+
+#loginPage {									
+	background-image: url('bg.jpg');
+	background-size: 100% auto;
+	background-repeat: no-repeat;
+}
+
+#chatPage {									
+	background-image: url('bg.jpg');
+	background-size: 100% auto;
+	background-repeat: no-repeat;
+}
+
+div.ui-field-contain {
+
+	margin-top: 50px;
+	margin-bottom:50px;
+	background: rgba(0,0,0,0.3);
+	border-top: 3px solid #791806;
+	border-bottom: 3px solid #791806;
+	border-left: 3px solid #791806;
+	border-right: 3px solid #791806;
+}
+
+#chatNameText {
+
+width:270px;
+
+}
+
+#head {
+	text-align: center;
+}
+
+#head2 {
+	text-align: center;
+
+}
+ #incomingMessages{
+ 	background: rgba(0,0,0,0.3);
+ 	text-align: left;
+ 	border-top: 3px solid #791806;
+	border-bottom: 3px solid #791806;
+	border-left: 3px solid #791806;
+	border-right: 3px solid #791806;
+ }
+
+#textarea{
+	margin-top:10px;
+	margin-bottom:10px;
+	background: rgba(0,0,0,0.3);
+	border-top: 3px solid #791806;
+	border-bottom: 3px solid #791806;
+	border-left: 3px solid #791806;
+	border-right: 3px solid #791806;
+}
+
+
+.message {
+padding: 5px 5px 5px 5px;
+}
+
+.username {
+font-weight: strong;
+color: #FF5252;
+}
+
+.msgContainerDiv {
+overflow-y: scroll;
+height: 200px;
+}
+
+
+
+.MapContainer { 
+	
+	height: 160px;
+	width: 90%;
+	margin: auto;
+	margin-top: 10px;
+	border-top: 3px solid #791806;
+	border-bottom: 3px solid #791806;
+	border-left: 3px solid #791806;
+	border-right: 3px solid #791806;
+	}
+
+#startDiv{
+
+	margin:auto;
+	margin-top:10px;
+	height:100px;
+
+	width:90%;
+	height:auto;
+	overflow: scroll;
+
+	background: rgba(0,0,0,0.3);
+	border-top: 3px solid #791806;
+	border-bottom: 3px solid #791806;
+	border-left: 3px solid #791806;
+	border-right: 3px solid #791806;
+}
+
+#newchat{
+
+margin:auto;
+margin-top:15px;
+width:90%;
+height:auto;
+overflow: scroll;
+background: rgba(0,0,0,0.3);
+border-top: 3px solid #791806;
+border-bottom: 3px solid #791806;
+border-left: 3px solid #791806;
+border-right: 3px solid #791806;
+
+} 
+
+/* botton#newchat.ui-btn-hidden */
+
+
+.form {
+height:30px;
+
+}
+.ui-grid-a{
+	
+background-size: 100% auto; 
+max-height: 400px;
+width:auto;
+overflow: scroll;
+margin-bottom: 0px;
+
+}
+
+.ui-block-a{
+
+
+}
+
+
+.ui-block-b{
+
+}
+
+.ChatContainer { 
+	
+	height: 400px;
+	width: auto;
+	margin-top: 0px;
+
+	}
+
+#available{
+	
+	height: 180px;
+	width: 100%;
+	margin-top:0px;
+	
+	font-family: Helvetica;
+	color: white;
+	font-size: 2.4em;
+	text-align: center;
+	
+}
+
+#other{
+	
+	height: 180px;
+	width: 100%;
+	margin-top:0px;
+	
+	font-family: Helvetica;
+	color: white;
+	font-size: 2.4em;
+	text-align: center;
+	
+}
+
+#streck {
+	border-bottom:3px solid #791806;
+}
+
+label.ui-input-text {
+	color:#FFFFFF;
+}
+.ui-listview li{
+
+/*  height: 80px; avstånd mellan listobjekt bara */
+height: 60px;
+text-align: left;
+margin-left:15px; 
+font-size: 0.5em;
+margin-top: 20px;
+
+}
+				
+
+.ui-slider {
+width: 250px;
+height: 40px;
+}
+
+.form{
+	height:10px;
+}
+
+#name{
+
+}
+#remove {
+	background: #C2C2C2;
+	border-radius: 23px; 
+	-moz-border-radius: 23px; 
+	-webkit-border-radius: 23px; 
+	border: 2px solid #800000;
+	margin-left: 0px;
+}
+.remove:hover {
+    
+}
+/*
+.remove {
+margin-right:80px;
+background-color: #000000;
+font-size:0.5em;
+color: #FFFFFF;
+border: 3px solid #791806;
+width: 60px;
+height: 20px;
+text-align: center;
+
+}
+*/
+
+
+/* ID # starkare än class . */
