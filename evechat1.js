@@ -127,7 +127,7 @@ $(function () {
         zoomOutControlDiv.index = 1;
         map.controls[google.maps.ControlPosition.LEFT_CENTER].push(zoomOutControlDiv);
 
-        showResturants();
+        getChats();
 
         function ZoomInControl(controlDiv, map) {
 
@@ -163,7 +163,7 @@ $(function () {
         });
       }
 
-        function showResturants() {
+        function getChats() {
 
         helper.searchDocuments(
         // the search condition structure. This is created as an object
