@@ -26,7 +26,7 @@ html, body {
 	color: #EEEEEE;
 }
 
-.ui-page {									/* BAKGRUND */
+#home {									/* BAKGRUND */
 	background-image: url('bg.jpg');
 	background-size: 100% auto;
 	background-repeat: no-repeat;
@@ -42,6 +42,11 @@ html, body {
 	background-image: url('bg.jpg');
 	background-size: 100% auto;
 	background-repeat: no-repeat;
+}
+
+#head2 {
+	text-align: center;
+	
 }
 
 div.ui-field-contain {
@@ -65,11 +70,9 @@ width:270px;
 	text-align: center;
 }
 
-#head2 {
-	text-align: center;
 
-}
  #incomingMessages{
+ 	color: #FFFFFF;
  	background: rgba(0,0,0,0.3);
  	text-align: left;
  	border-top: 3px solid #791806;
@@ -79,8 +82,9 @@ width:270px;
  }
 
 #textarea{
-	margin-top:10px;
-	margin-bottom:10px;
+
+	
+	
 	background: rgba(0,0,0,0.3);
 	border-top: 3px solid #791806;
 	border-bottom: 3px solid #791806;
@@ -121,10 +125,9 @@ height: 200px;
 
 	margin:auto;
 	margin-top:10px;
-	height:100px;
-
+	height:90%;
 	width:90%;
-	height:auto;
+	margin-bottom:10px;
 	overflow: scroll;
 
 	background: rgba(0,0,0,0.3);
@@ -136,16 +139,18 @@ height: 200px;
 
 #newchat{
 
-margin:auto;
-margin-top:15px;
-width:90%;
-height:auto;
-overflow: scroll;
-background: rgba(0,0,0,0.3);
-border-top: 3px solid #791806;
-border-bottom: 3px solid #791806;
-border-left: 3px solid #791806;
-border-right: 3px solid #791806;
+	margin:auto;
+	margin-top:10px;
+	height:90%;
+	width:90%;
+	margin-bottom:10px;
+	overflow: scroll;
+
+	background: rgba(0,0,0,0.3);
+	border-top: 3px solid #791806;
+	border-bottom: 3px solid #791806;
+	border-left: 3px solid #791806;
+	border-right: 3px solid #791806;
 
 } 
 
@@ -268,3 +273,28 @@ text-align: center;
 
 
 /* ID # starkare än class . */
+
+
+
+
+/* 
+Startsida 
+hela bakgrund = div#home.ui-body-c.ui-page-active
+Övre del = div.MapContainer
+Undre del (se chatter) = div#startDiv
+Undre del (starta chat) div#newchat
+
+Create Chat
+hela bakgrund = div#loginPage.ui-page.ui-body-c.ui-page-active
+Header = h2
+Övreövre del = div#head.ui-content
+Övre del = div.ui-field-contain.ui-body.ui-br
+
+Inne i Chat
+hela bakgrund = div#chatPage.ui-page.ui-body-c.ui-page-active
+mestadelen av bilden = div#head2.ui-content
+Header = h2
+Övre del = div#incomingMessages.msgContainerDiv
+Undre del = div#textarea
+
+*/

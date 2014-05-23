@@ -49,7 +49,7 @@
     var marker = new google.maps.Marker({
       animation: google.maps.Animation.BOUNCE,
       map:map,
-      icon:'gurra.png',
+      icon:'eve.png',
 
     });
 
@@ -127,7 +127,7 @@ $(function () {
         zoomOutControlDiv.index = 1;
         map.controls[google.maps.ControlPosition.LEFT_CENTER].push(zoomOutControlDiv);
 
-        getChats();
+        showResturants();
 
         function ZoomInControl(controlDiv, map) {
 
@@ -163,7 +163,7 @@ $(function () {
         });
       }
 
-        function getChats() {
+        function showResturants() {
 
         helper.searchDocuments(
         // the search condition structure. This is created as an object
@@ -318,24 +318,17 @@ $(function () {
            
 
             html = '<li type="button" onClick=openchat2("'+name+'")><span>'+name+" "+'</span><br/>';
-            html += '<span>   Radius: <br/>' +radius+ ' m</span><br/></li>';
-            html += '<button id=remove onClick=removeChat("'+name+'")>Remove chat</button><br/><br/>';
+            html += '<span>   Radius: ' +radius+ ' m</span><br/></li>';
             $('#available ul').append(html);
 
           }
 
              function otherChats (name,radius,distanceBetween) {
-              if (name!="undefined") {
-
-                distanceBetween = distanceBetween/1000;
+              distanceBetween = distanceBetween/1000;
 
             html = '<li><span>'+name+" "+'</span><br/>';
             html += '<span>Distance: ' +distanceBetween+ ' km</span><br/></li>';
-            html += '<button id=remove onClick=removeChat("'+name+'")>Remove chat</button><br/><br/>';
             $('#other ul').append(html);
-              };
-
-              
 
           }
 
@@ -364,26 +357,5 @@ $(function () {
             window.location.replace("PN.html?chat="+name+"");
 
           };
-
-          function removeChat(name){
-            
-            var password = prompt("Please enter the admin password for the chat "+name+" ");
-            console.log(password);
-
-            condition= { 'password' : password };
-            data = {
-                  "lat" : "null",
-                  "lng" : "null",
-              };
-
-               helper.updateDocument(data,condition,"parametrar");
-               window.setInterval(replace,300);
-
-          };
-          function replace () {
-            window.location.replace("evechat.html")
-            // body...
-          }
-
 
    google.maps.event.addDomListener(window, 'load', initialize);
