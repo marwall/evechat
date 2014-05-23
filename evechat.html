@@ -90,7 +90,7 @@
          
         <!-- /////////// startDiv START ////////// --> 
       <div id="startDiv">
-       <button id="newChatButton" onclick="create_page();">Create Chat</button>
+       <button id="createChatButton" onclick="create_page();">Create Chat</button>
            <div id="streck"></div>
 
        <!-- ////////// Grids START //////////// -->
@@ -125,7 +125,7 @@
 
         <!-- /////////////////// NEWCHAT START ////////////////// -->
       <div id="newchat" style="display:none;">
-          <button id="newChatButton" onclick="chat_page();">Back to Chat Selection</button>
+          <button id="createChatButton" onclick="chat_page();">Back to Chat Selection</button>
           <form>
             <label for="radiusSlider">Radius (meters): </label>
             <input type="range" id="radiusSlider" value="100" min="10" max="500" onchange="showVal(value)"></input>
